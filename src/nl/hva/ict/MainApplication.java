@@ -15,8 +15,8 @@ public class MainApplication extends Application {
 
     //MySQL
     private static final String MYSQL_HOST = "jdbc:mysql://localhost:3306/big_five_safari?autoReconnect=true&serverTimezone=UTC&useSSL=False";
-    private static final String MYSQL_USERNAME = "";
-    private static final String MYSQL_PASSWORD = "";
+    private static final String MYSQL_USERNAME = "root";
+    private static final String MYSQL_PASSWORD = "Ruraii2393.";
 
     //Mongo NoSQL
     private static final String NOSQL_HOST = "mongodb://host1:27017";
