@@ -7,8 +7,8 @@ import nl.hva.ict.models.BoekingsOverzicht;
 
 public class BoekingsoverzichtView extends View {
 
-    private GridPane rootPane;
-    private ListView<BoekingsOverzicht> boekingsOverzichtListView;
+    private final GridPane rootPane;
+    private final ListView<BoekingsOverzicht> boekingsOverzichtListView;
 
     public BoekingsoverzichtView() {
         rootPane = new GridPane();

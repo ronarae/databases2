@@ -11,7 +11,7 @@ import nl.hva.ict.data.MySQL.MySQLReizigers;
 
 public class MainApplication extends Application {
 
-    private static final String TITLE = "Practicumopdracht DB2";
+    private static final String TITLE = "Practicumopdracht DB2 - Rona Rae de Romas Rieza";
 
     //MySQL
     private static final String MYSQL_HOST = "jdbc:mysql://localhost:3306/big_five_safari?autoReconnect=true&serverTimezone=UTC&useSSL=False";
@@ -27,9 +27,7 @@ public class MainApplication extends Application {
     private static MainController mainController;
 
     //Static dataconnectors
-    private static MySQLReizigers mySQLReizigers = new MySQLReizigers();
-    private final int WIDTH = 800;
-    private final int HEIGHT = 800;
+    private static final MySQLReizigers mySQLReizigers = new MySQLReizigers();
 
     public static void switchController(Parent pane) {
         mainController.getBorderPane().setCenter(pane);
@@ -65,7 +63,9 @@ public class MainApplication extends Application {
     public void start(Stage stage) {
         MainApplication.stage = stage;
         MainApplication.stage.setTitle(TITLE);
+        int WIDTH = 800;
         MainApplication.stage.setWidth(WIDTH);
+        int HEIGHT = 800;
         MainApplication.stage.setHeight(HEIGHT);
         mainController = new MainController();
 

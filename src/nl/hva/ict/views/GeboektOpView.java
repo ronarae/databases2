@@ -12,8 +12,8 @@ import nl.hva.ict.models.BoekingsOverzicht;
 
 public class GeboektOpView extends View {
 
-    private GridPane rootPane;
-    private ListView<BoekingsOverzicht> boekingsOverzichtListView;
+    private final GridPane rootPane;
+    private final ListView<BoekingsOverzicht> boekingsOverzichtListView;
     private DatePicker datePicker;
     private ComboBox comboBoxAccommodaties;
 

@@ -5,7 +5,7 @@ import nl.hva.ict.views.View;
 
 public class BoekingsOverzichtController extends Controller {
 
-    private BoekingsoverzichtView boekingsoverzichtView;
+    private final BoekingsoverzichtView boekingsoverzichtView;
 
     public BoekingsOverzichtController() {
         boekingsoverzichtView = new BoekingsoverzichtView();

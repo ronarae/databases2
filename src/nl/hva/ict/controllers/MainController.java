@@ -11,14 +11,14 @@ import java.util.Optional;
 
 public class MainController extends Controller {
 
-    private MainView mainView;
-    private ReizigerController reizigerController;
-    private HotelController hotelController;
-    private LodgeController lodgeController;
-    private AboutController aboutController;
-    private BoekingsOverzichtController boekingsOverzichtController;
-    private BoekingsOverzichtPerKlantController boekingsOverzichtPerKlantController;
-    private BoekingsGeboektOpController boekingsGeboektOpController;
+    private final MainView mainView;
+    private final ReizigerController reizigerController;
+    private final HotelController hotelController;
+    private final LodgeController lodgeController;
+    private final AboutController aboutController;
+    private final BoekingsOverzichtController boekingsOverzichtController;
+    private final BoekingsOverzichtPerKlantController boekingsOverzichtPerKlantController;
+    private final BoekingsGeboektOpController boekingsGeboektOpController;
 
     public MainController() {
         mainView = new MainView();

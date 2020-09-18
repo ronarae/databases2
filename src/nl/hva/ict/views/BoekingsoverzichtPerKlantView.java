@@ -6,16 +6,15 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import nl.hva.ict.models.BoekingsOverzicht;
 
 
 public class BoekingsoverzichtPerKlantView extends View {
 
-    private GridPane rootPane;
-    private ListView<BoekingsOverzicht> boekingsOverzichtListView;
-    private ComboBox comboBox;
+    private final GridPane rootPane;
+    private final ListView<BoekingsOverzicht> boekingsOverzichtListView;
+    private final ComboBox comboBox;
 
     public BoekingsoverzichtPerKlantView() {
         rootPane = new GridPane();

@@ -9,8 +9,7 @@ import nl.hva.ict.views.View;
 
 public class BoekingsOverzichtPerKlantController extends Controller {
 
-    private BoekingsoverzichtPerKlantView boekingsoverzichtPerKlantView;
-    private ObservableList<Reiziger> reizigers;
+    private final BoekingsoverzichtPerKlantView boekingsoverzichtPerKlantView;
 
     public BoekingsOverzichtPerKlantController() {
         boekingsoverzichtPerKlantView = new BoekingsoverzichtPerKlantView();
@@ -18,7 +17,7 @@ public class BoekingsOverzichtPerKlantController extends Controller {
     }
 
     private void load(){
-        reizigers = FXCollections.observableArrayList(MainApplication.getMySQLReizigers().getAll());
+        ObservableList<Reiziger> reizigers = FXCollections.observableArrayList(MainApplication.getMySQLReizigers().getAll());
         boekingsoverzichtPerKlantView.getComboBox().setItems(reizigers);
     }
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class MySQLReizigers extends MySQL<Reiziger> {
 
-    private List<Reiziger> reizigers;
+    private final List<Reiziger> reizigers;
 
     public MySQLReizigers() {
         reizigers = new ArrayList<>();
@@ -47,22 +47,22 @@ public class MySQLReizigers extends MySQL<Reiziger> {
     }
 
     @Override
-    public Reiziger get(String id) {
+    public Reiziger get() {
         return null;
     }
 
     @Override
-    public void add(Reiziger object) {
+    public void add() {
 
     }
 
     @Override
-    public void update(Reiziger object) {
+    public void update() {
 
     }
 
     @Override
-    public void remove(Reiziger object) {
+    public void remove() {
 
     }
 
