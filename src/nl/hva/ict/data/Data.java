@@ -5,8 +5,8 @@ import java.util.List;
 public interface Data<T> {
 
     List<T> getAll();
-    T get();
-    void add();
-    void update();
-    void remove();
+    T get(String id);
+    void add(T object);
+    void update (T object);
+    void remove(T object);
 }

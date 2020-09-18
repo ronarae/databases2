@@ -27,7 +27,9 @@ public class MainApplication extends Application {
     private static MainController mainController;
 
     //Static dataconnectors
-    private static final MySQLReizigers mySQLReizigers = new MySQLReizigers();
+    private static MySQLReizigers mySQLReizigers = new MySQLReizigers();
+    private final int WIDTH = 800;
+    private final int HEIGHT = 800;
 
     public static void switchController(Parent pane) {
         mainController.getBorderPane().setCenter(pane);
@@ -63,9 +65,7 @@ public class MainApplication extends Application {
     public void start(Stage stage) {
         MainApplication.stage = stage;
         MainApplication.stage.setTitle(TITLE);
-        int WIDTH = 800;
         MainApplication.stage.setWidth(WIDTH);
-        int HEIGHT = 800;
         MainApplication.stage.setHeight(HEIGHT);
         mainController = new MainController();
 

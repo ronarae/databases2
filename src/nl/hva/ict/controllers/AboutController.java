@@ -5,7 +5,7 @@ import nl.hva.ict.views.View;
 
 public class AboutController extends Controller {
 
-    private final AboutView aboutView;
+    private AboutView aboutView;
 
     public AboutController() {
         aboutView = new AboutView();

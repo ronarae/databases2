@@ -13,6 +13,7 @@ public abstract class MongoDB implements Data {
 
     private MongoClient mongoClient;
     private MongoDatabase mongoDatabase;
+    private MongoCollection<Document> collection;
 
 
     public MongoDB() {
@@ -33,7 +34,7 @@ public abstract class MongoDB implements Data {
 
 
     public void selectedCollection(String collection){
-        MongoCollection<Document> collection1 = mongoDatabase.getCollection(collection);
+        this.collection = mongoDatabase.getCollection(collection);
     }
 
 

@@ -14,7 +14,7 @@ import nl.hva.ict.MainApplication;
 
 public class MainView extends View {
 
-    private final MenuBar menuBar;
+    private MenuBar menuBar;
     private BorderPane borderPane;
     private Menu fileMenu;
     private MenuItem closeMenuItem;
@@ -81,7 +81,8 @@ public class MainView extends View {
     }
 
     public Pane createRoot() {
-        return new GridPane();
+        GridPane rootPane = new GridPane();
+        return rootPane;
     }
 
     private BorderPane createBorderPane() {

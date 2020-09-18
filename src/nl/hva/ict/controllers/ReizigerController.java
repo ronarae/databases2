@@ -9,7 +9,8 @@ import nl.hva.ict.views.View;
 
 public class ReizigerController extends Controller {
 
-    private final ReizigersView reizigersView;
+    private ReizigersView reizigersView;
+    private ObservableList<Reiziger> reizigers;
 
     public ReizigerController() {
         reizigersView = new ReizigersView();
@@ -26,7 +27,7 @@ public class ReizigerController extends Controller {
 
     private void loadData(){
         //haal de waardes op uit de database
-        ObservableList<Reiziger> reizigers = FXCollections.observableArrayList(MainApplication.getMySQLReizigers().getAll());
+        reizigers = FXCollections.observableArrayList(MainApplication.getMySQLReizigers().getAll());
         reizigersView.getReizigersViewListView().setItems(reizigers);
         reizigersView.getComboReistSamenMet().getSelectionModel().select(null);
     }

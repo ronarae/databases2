@@ -9,7 +9,7 @@ import java.util.List;
 
 public class MySQLReizigers extends MySQL<Reiziger> {
 
-    private final List<Reiziger> reizigers;
+    private List<Reiziger> reizigers;
 
     public MySQLReizigers() {
         reizigers = new ArrayList<>();
@@ -25,7 +25,7 @@ public class MySQLReizigers extends MySQL<Reiziger> {
             ResultSet rs = executeSelectPreparedStatement(ps);
 
             while (rs.next()) {
-                String reizigersCode = rs.getString("reizigerCode");
+                String reizigersCode = rs.getString("reizigers_code");
                 String voornaam = rs.getString("voornaam");
                 String achternaam = rs.getString("achternaam");
                 String adres = rs.getString("adres");
@@ -47,22 +47,22 @@ public class MySQLReizigers extends MySQL<Reiziger> {
     }
 
     @Override
-    public Reiziger get() {
+    public Reiziger get(String id) {
         return null;
     }
 
     @Override
-    public void add() {
+    public void add(Reiziger object) {
 
     }
 
     @Override
-    public void update() {
+    public void update(Reiziger object) {
 
     }
 
     @Override
-    public void remove() {
+    public void remove(Reiziger object) {
 
     }
 

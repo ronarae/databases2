@@ -5,7 +5,7 @@ import nl.hva.ict.views.View;
 
 public class BoekingsGeboektOpController extends Controller {
 
-    private final GeboektOpView geboektOpView;
+    private GeboektOpView geboektOpView;
 
     public BoekingsGeboektOpController() {
         geboektOpView = new GeboektOpView();
