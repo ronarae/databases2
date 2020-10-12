@@ -5,6 +5,9 @@ import nl.hva.ict.data.Identifable;
 public class BoekingsOverzicht implements Identifable {
 
     private Reiziger reiziger;
+    private Accommodatie accommodatie;
+    private Reservering reservering;
+
 
 
     public BoekingsOverzicht() {
