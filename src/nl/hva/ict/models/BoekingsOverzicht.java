@@ -13,16 +13,55 @@ public class BoekingsOverzicht implements Identifable {
     public BoekingsOverzicht() {
     }
 
+    public BoekingsOverzicht(Reiziger reiziger, Accommodatie accommodatie, Reservering reservering) {
+        this.reiziger = reiziger;
+        this.accommodatie = accommodatie;
+        this.reservering = reservering;
+    }
+
     public Reiziger getReiziger() {
+
         return reiziger;
     }
 
     public void setReiziger(Reiziger reiziger) {
+
         this.reiziger = reiziger;
+    }
+
+    public Accommodatie getAccommodatie() {
+        return accommodatie;
+    }
+
+    public void setAccommodatie(Accommodatie accommodatie) {
+        this.accommodatie = accommodatie;
+    }
+
+    public Reservering getReservering() {
+        return reservering;
+    }
+
+    public void setReservering(Reservering reservering) {
+        this.reservering = reservering;
     }
 
     @Override
     public String toString() {
-        return "";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(this.reiziger.getVoornaam());
+        stringBuilder.append(" ");
+        stringBuilder.append(this.reiziger.getAchternaam());
+        stringBuilder.append(" - reist van ");
+        stringBuilder.append(reservering.getAankomst_datum());
+        stringBuilder.append(" tot ");
+        stringBuilder.append(reservering.getVertrek_datum());
+        stringBuilder.append(" en verblijft in : ");
+        stringBuilder.append(accommodatie.getNaam());
+        stringBuilder.append(" in ");
+        stringBuilder.append(accommodatie.getStad());
+        stringBuilder.append(" - ");
+        stringBuilder.append(accommodatie.getLand());
+
+        return stringBuilder.toString();
     }
 }
