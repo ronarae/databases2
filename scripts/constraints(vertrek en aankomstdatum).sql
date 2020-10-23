@@ -1,0 +1,1 @@
+ALTER TABLE reservering ADD CONSTRAINT CheckDatum CHECK (vertrek_datum > aankomst_datum);
