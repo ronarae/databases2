@@ -1,5 +1,5 @@
 db.insertMany({
-   "“reizigers_code “":"FadilO",
+   "reizigers_code ":"FadilO",
    "voornaam":"Omar",
    "achternaam":"Fadil",
    "adres":“Houtsberg 16”,
