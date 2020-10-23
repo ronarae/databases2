@@ -13,8 +13,11 @@ public class Reiziger implements Identifable, Serializable {
     private String plaats;
     private String land;
     private String hoofdreiziger;
+    private String reizigersNaam;
+    private int verblijfsduur;
 
-    public Reiziger(String reizigersCode, String voornaam, String achternaam, String adres, String postcode, String plaats, String land, String hoofdreiziger) {
+    public Reiziger(String reizigersCode, String voornaam, String achternaam, String adres, String postcode,
+                    String plaats, String land, String hoofdreiziger) {
         this.reizigersCode = reizigersCode;
         this.voornaam = voornaam;
         this.achternaam = achternaam;
@@ -90,6 +93,22 @@ public class Reiziger implements Identifable, Serializable {
 
     public void setHoofdreiziger(String hoofdreiziger) {
         this.hoofdreiziger = hoofdreiziger;
+    }
+
+    public String getReizigersNaam() {
+        return reizigersNaam;
+    }
+
+    public void setReizigersNaam(String reizigersNaam) {
+        this.reizigersNaam = reizigersNaam;
+    }
+
+    public int getVerblijfsduur() {
+        return verblijfsduur;
+    }
+
+    public void setVerblijfsduur(int verblijfsduur) {
+        this.verblijfsduur = verblijfsduur;
     }
 
     @Override

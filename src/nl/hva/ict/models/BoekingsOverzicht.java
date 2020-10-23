@@ -48,19 +48,21 @@ public class BoekingsOverzicht implements Identifable {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(this.reiziger.getVoornaam());
-        stringBuilder.append(" ");
-        stringBuilder.append(this.reiziger.getAchternaam());
+        stringBuilder.append(reiziger.getReizigersNaam());
         stringBuilder.append(" - reist van ");
         stringBuilder.append(reservering.getAankomst_datum());
-        stringBuilder.append(" tot ");
-        stringBuilder.append(reservering.getVertrek_datum());
-        stringBuilder.append(" en verblijft in : ");
-        stringBuilder.append(accommodatie.getNaam());
+        stringBuilder.append(" en verblijft gedurende : ");
+        stringBuilder.append(reiziger.getVerblijfsduur());
+        stringBuilder.append(" dagen in : ");
+        stringBuilder.append(accommodatie.getKamer());
         stringBuilder.append(" in ");
+        stringBuilder.append(accommodatie.getNaam());
+        stringBuilder.append(" - ");
         stringBuilder.append(accommodatie.getStad());
         stringBuilder.append(" - ");
         stringBuilder.append(accommodatie.getLand());
+        stringBuilder.append(" betaald? ");
+        stringBuilder.append(reservering.isBetaald());
 
         return stringBuilder.toString();
     }

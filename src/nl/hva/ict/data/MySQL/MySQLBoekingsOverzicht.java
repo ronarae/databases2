@@ -25,10 +25,12 @@ public class MySQLBoekingsOverzicht extends MySQL<BoekingsOverzicht> {
     private void load() {
 
         //SQL
-        String sql ="SELECT r.reservering_id, r.aankomst_datum, r.vertrek_datum, r.betaald, a.accommodatie_code, a.naam, a.stad, a.land, a.soort, reiziger.voornaam, reiziger.achternaam, reiziger.adres, reiziger.postcode, reiziger.plaats, reiziger.reizigers_code, reiziger.hoofdreiziger \n" +
-                "FROM `reservering` AS r \n" +
-                "INNER JOIN accommodatie AS a ON r.accommodatie_code = a.accommodatie_code \n" +
-                "INNER JOIN reiziger ON r.reizigers_code = reiziger.reizigers_code";
+//        String sql ="SELECT r.reservering_id, r.aankomst_datum, r.vertrek_datum, r.betaald, a.accommodatie_code, a.naam, a.stad, a.land, a.soort, reiziger.voornaam, reiziger.achternaam, reiziger.adres, reiziger.postcode, reiziger.plaats, reiziger.reizigers_code, reiziger.hoofdreiziger \n" +
+//                "FROM `reservering` AS r \n" +
+//                "INNER JOIN accommodatie AS a ON r.accommodatie_code = a.accommodatie_code \n" +
+//                "INNER JOIN reiziger ON r.reizigers_code = reiziger.reizigers_code";
+
+        String sql = "SELECT * FROM boekingsoverzicht";
 
         if (sql.equals(""))
             return;
@@ -38,35 +40,29 @@ public class MySQLBoekingsOverzicht extends MySQL<BoekingsOverzicht> {
             ResultSet rs = executeSelectPreparedStatement(ps);
 
             while (rs.next()) {
-                int reservering_id = rs.getInt("reservering_id");
-                boolean betaald = rs.getBoolean("betaald");
-                Date aankomst_datum = rs.getDate("aankomst_datum");
-                Date vertrek_datum = rs.getDate("vertrek_datum");
-                String accommodatie_code = rs.getString("accommodatie_code");
-                String reizigers_code = rs.getString("reizigers_code");
-
-                String voornaam = rs.getString("voornaam");
-                String achternaam = rs.getString("achternaam");
-                String adres = rs.getString("adres");
-                String postcode = rs.getString("postcode");
-                String plaats = rs.getString("plaats");
-                String land = rs.getString("land");
-                String hoofdreiziger = rs.getString("hoofdreiziger");
                 String accommodatieNaam = rs.getString("naam");
                 String accommodatieStad = rs.getString("stad");
                 String accommodatieLand = rs.getString("land");
-                String accommodatie_soort = rs.getString("soort");
+                String accommodatieKamer = rs.getString("kamer");
 
-                Reservering reservering = new Reservering(reservering_id, betaald,aankomst_datum, vertrek_datum,
-                        accommodatie_code, reizigers_code);
-                Reiziger reiziger = new Reiziger(reizigers_code, voornaam, achternaam, adres, postcode, plaats, land,
-                        hoofdreiziger);
+                String reizigersNaam = rs.getString("reizigersnaam");
+                Date aankomstDatum = rs.getDate("aankomst_datum");
+                int verblijfsduur = rs.getInt("verblijfsduur");
+                boolean betaald = rs.getBoolean("betaald");
+
+                Reservering reservering = new Reservering();
+                reservering.setAankomst_datum(aankomstDatum);
+                reservering.setBetaald(betaald);
+
+                Reiziger reiziger = new Reiziger();
+                reiziger.setVerblijfsduur(verblijfsduur);
+                reiziger.setReizigersNaam(reizigersNaam);
 
                 Accommodatie accommodatie = new Accommodatie();
                 accommodatie.setNaam(accommodatieNaam);
                 accommodatie.setStad(accommodatieStad);
                 accommodatie.setLand(accommodatieLand);
-
+                accommodatie.setKamer(accommodatieKamer);
                 boekingsOverzicht.add(new BoekingsOverzicht(reiziger, accommodatie, reservering));
             }
         } catch (SQLException e) {
@@ -128,11 +124,16 @@ public class MySQLBoekingsOverzicht extends MySQL<BoekingsOverzicht> {
     public List<Reiziger> GeboektOp(String pCode, LocalDate pDatum) {
 
         List<Reiziger> geboektOp = new ArrayList<>();
+
+        //Stop nullpointer als datum nog niet is ingevuld.
+        if (pDatum == null)
+            return geboektOp;
+
+
         Date date = Date.valueOf(pDatum);
 
         //SQL
-        String sql = String.format("SELECT reizigerscode, voornaam, achternaam, plaats FROM big_five_safari.reiziger " +
-                "WHERE reizigerscode = big_five_safari.geboektOp('%s', '%s')", pCode, date);
+        String sql = String.format("SELECT reizigers_code, voornaam, achternaam, plaats FROM big_five_safari.reiziger WHERE reizigers_code = big_five_safari.geboektOp('%s', '%s')", pCode, date);
 
         try {
             PreparedStatement ps = getStatement(sql);
