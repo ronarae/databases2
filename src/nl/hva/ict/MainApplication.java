@@ -7,9 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import nl.hva.ict.controllers.MainController;
-import nl.hva.ict.data.MySQL.MySQLAccommodatie;
-import nl.hva.ict.data.MySQL.MySQLBoekingsOverzicht;
-import nl.hva.ict.data.MySQL.MySQLReizigers;
+import nl.hva.ict.data.MySQL.*;
 
 public class MainApplication extends Application {
 
@@ -21,8 +19,8 @@ public class MainApplication extends Application {
     private static final String MYSQL_PASSWORD = "Ruraii2393.";
 
     //Mongo NoSQL
-    private static final String NOSQL_HOST = "mongodb://host1:27017";
-    private static final String NOSQL_DATABASE = "";
+    private static final String NOSQL_HOST = "mongodb+srv://dbRona:dbRona@cluster0.ry1mg.azure.mongodb.net/big_five_safari?retryWrites=true&w=majority";
+    private static final String NOSQL_DATABASE = "big_five_safari";
 
     //JavaFX
     private static Stage stage;
@@ -32,6 +30,8 @@ public class MainApplication extends Application {
     private static MySQLReizigers mySQLReizigers = new MySQLReizigers();
     private static MySQLBoekingsOverzicht mySQLBoekingsOverzicht = new MySQLBoekingsOverzicht();
     private static MySQLAccommodatie mySQLAccommodatie = new MySQLAccommodatie();
+    private static MySQLHotel mySQLHotel = new MySQLHotel();
+    private static MySQLLodge mySQLLodge = new MySQLLodge();
     private final int WIDTH = 800;
     private final int HEIGHT = 800;
 
@@ -72,6 +72,10 @@ public class MainApplication extends Application {
     public static MySQLAccommodatie getMySQLAccommodatie() {
         return mySQLAccommodatie;
     }
+
+    public static MySQLHotel getMySQLHotel() { return mySQLHotel; }
+
+    public static MySQLLodge getMySQLLodge() { return mySQLLodge; }
 
     @Override
     public void start(Stage stage) {
